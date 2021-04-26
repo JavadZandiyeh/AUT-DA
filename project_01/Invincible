@@ -1,0 +1,18 @@
+n, m, k = input().split()
+n, m, k = int(n), int(m), int(k)
+t = input().split()
+in_numbers = [0]*n
+for i in range(n):
+    in_numbers[i] = int(t[i])
+
+x = int(m/k)
+myList = [[] for i in range(x)]
+for i in in_numbers:
+    myList[i // k].append(i)
+
+maximum = 0
+for i in range(1, x):
+    if len(myList[i]) > len(myList[maximum]):
+        maximum = i
+
+print(myList[maximum].pop(0))
